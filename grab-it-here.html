@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin-top: 60px;
+        padding: 0px;
+      }
+      #wrap {
+        text-align: center;
+        font-size: 30px;
+      }
+      #label {
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <span id="label">Drag this to your toolbar:</span>
+      <a href="javascript: (function() {
+        var styleElement = document.createElement('style');
+        styleElement.type = 'text/css';
+        
+        var newCss = '
+          #header {display: none !important}
+          #chat {
+            position: fixed !important;
+            top: 0px !important;
+            left: 0px !important;
+            width: 2000px !important;
+            height: 100% !important;
+            z-index: 1000 !important;
+          }
+          #chat .item .content {
+            font-size: 28px !important;
+          }
+          #viewers {
+            font-size: 28px !important;
+            position: fixed !important;
+            line-height: 30px !important;
+            height: 30px !important;
+            right: 50% !important;
+            color: #1B1B1B !important;
+            font-weight: bold !important;
+          }
+        }
+        }';
+
+        if (styleElement.styleSheet) {
+          styleElement.styleSheet.cssText = newCss;
+        } else {
+          styleElement.appendChild(document.createTextNode(newCss));
+        }
+
+        document.getElementsByTagName('head')[0].appendChild(styleElement);
+      })()"
+
+      >Bookmarklet</a>
+    </div>
+  </body>
+</html>
